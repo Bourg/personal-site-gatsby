@@ -4,5 +4,5 @@ module.exports = {
     description: `Austin's work-in-progress personal homepage`,
     author: `@bourg`,
   },
-  plugins: [`gatsby-plugin-typescript`],
+  plugins: [],
 }
