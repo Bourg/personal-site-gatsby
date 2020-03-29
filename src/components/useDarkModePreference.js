@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react"
 const useDarkModeSystemPreference = () => {
   // Grab a reference to the matchMedia function
   const matchDark =
-    window && window.matchMedia
+    typeof Window !== "undefined" && window.matchMedia
       ? window.matchMedia("(prefers-color-scheme: dark)")
       : null
 

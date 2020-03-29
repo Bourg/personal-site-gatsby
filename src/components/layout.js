@@ -7,7 +7,7 @@ import useDarkModePreference from "./useDarkModePreference"
 export default ({ children }) => {
   const [prefersDarkMode, setDarkModePreference] = useDarkModePreference()
   useEffect(() => {
-    if (!window) {
+    if (typeof Window === "undefined") {
       return
     }
 
