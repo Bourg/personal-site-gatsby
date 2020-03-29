@@ -1,8 +1,9 @@
 import React from "react"
+import Layout from "../components/layout"
 
 export default () => (
-  <div>
+  <Layout>
     <h1>My Personal Site</h1>
     <h2>Under construction!</h2>
-  </div>
+  </Layout>
 )
