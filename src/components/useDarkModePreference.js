@@ -1,16 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
 
 const useDarkModeSystemPreference = () => {
-  // Grab a reference to the matchMedia function
-  const matchDark =
-    typeof window !== "undefined" && window.matchMedia
-      ? window.matchMedia("(prefers-color-scheme: dark)")
-      : null
-
   // Start by simply checking user preference
-  const [prefersDarkMode, setDarkModePreference] = useState(
-    matchDark ? matchDark.matches : false
-  )
+  const [prefersDarkMode, setDarkModePreference] = useState(false)
 
   // Subscribe to system color scheme preferences
   const onColorSchemePreferenceChange = useCallback(
@@ -20,6 +12,12 @@ const useDarkModeSystemPreference = () => {
     [setDarkModePreference]
   )
   useEffect(() => {
+    // Grab a reference to the matchMedia function
+    const matchDark =
+      typeof window !== "undefined" && window.matchMedia
+        ? window.matchMedia("(prefers-color-scheme: dark)")
+        : null
+
     if (!matchDark) {
       return
     }
@@ -38,9 +36,9 @@ const useDarkModePreference = () => {
   const [darkModeSitePreference, setDarkModeSitePreference] = useState(null)
 
   return [
-    !!(darkModeSitePreference == null
+    darkModeSitePreference == null
       ? darkModeSystemPreference
-      : darkModeSitePreference),
+      : darkModeSitePreference,
     setDarkModeSitePreference,
   ]
 }
