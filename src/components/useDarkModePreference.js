@@ -22,6 +22,7 @@ const useDarkModeSystemPreference = () => {
       return
     }
 
+    setDarkModePreference(matchDark.matches)
     matchDark.addEventListener("change", onColorSchemePreferenceChange)
 
     return () =>
